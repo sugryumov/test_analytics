@@ -1,4 +1,6 @@
-import { IAnalytics, TAnalyticsTypes } from '../models/IAnalytics';
+import { EAnalyticsDropdownName } from '../constants/analyticsDropdown';
+import { IAnalytics, TAnalyticsFilter, TAnalyticsTypes } from '../models/IAnalytics';
+import { convertNameToDate } from '../utils/prepareDate';
 
 const data: IAnalytics[] = [
   {
@@ -7,7 +9,7 @@ const data: IAnalytics[] = [
     count: 1600,
     price: '132000999',
     type: 'Sales',
-    createAt: '05.10.2022',
+    createAt: '10.05.2022',
   },
   {
     id: 2,
@@ -15,7 +17,7 @@ const data: IAnalytics[] = [
     count: 269,
     price: null,
     type: 'Sales',
-    createAt: '05.10.2022',
+    createAt: '10.05.2022',
   },
   {
     id: 3,
@@ -23,7 +25,7 @@ const data: IAnalytics[] = [
     count: 45,
     price: '108000',
     type: 'Marketing',
-    createAt: '04.10.2022',
+    createAt: '10.04.2022',
   },
   {
     id: 4,
@@ -31,7 +33,7 @@ const data: IAnalytics[] = [
     count: 115,
     price: null,
     type: 'Marketing',
-    createAt: '04.10.2022',
+    createAt: '10.04.2022',
   },
   {
     id: 5,
@@ -39,7 +41,7 @@ const data: IAnalytics[] = [
     count: 15,
     price: '24000',
     type: 'Partners',
-    createAt: '01.10.2022',
+    createAt: '10.01.2022',
   },
   {
     id: 6,
@@ -47,7 +49,7 @@ const data: IAnalytics[] = [
     count: 45,
     price: null,
     type: 'Partners',
-    createAt: '01.10.2022',
+    createAt: '10.01.2022',
   },
   {
     id: 7,
@@ -55,7 +57,7 @@ const data: IAnalytics[] = [
     count: 115,
     price: null,
     type: 'Sales',
-    createAt: '07.09.2022',
+    createAt: '09.07.2022',
   },
   {
     id: 8,
@@ -63,15 +65,34 @@ const data: IAnalytics[] = [
     count: 10,
     price: null,
     type: 'Sales',
-    createAt: '07.09.2022',
+    createAt: '09.07.2022',
   },
 ];
 
 export default class AnalyticsService {
-  static async fetchAnalytics(type: TAnalyticsTypes): Promise<IAnalytics[]> {
+  static async fetchAnalytics(
+    type: TAnalyticsTypes,
+    filter: TAnalyticsFilter
+  ): Promise<IAnalytics[]> {
     return new Promise((resolve) => {
+      const requestDate = convertNameToDate(filter);
+      const requestDateWithTime = new Date(requestDate);
+      const requestMilliseconds = requestDateWithTime.getTime();
+
+      const filteredByDate = data.filter(({ createAt }) => {
+        const recordDate = new Date(createAt);
+        const recordMilliseconds = recordDate.getTime();
+
+        return recordMilliseconds >= requestMilliseconds;
+      });
+
       setTimeout(
-        () => resolve(type === 'All Pipelines' ? data : data.filter((el) => el.type === type)),
+        () =>
+          resolve(
+            type === EAnalyticsDropdownName.ALL_PIPELINES
+              ? filteredByDate
+              : filteredByDate.filter((el) => el.type === type)
+          ),
         2000
       );
     });

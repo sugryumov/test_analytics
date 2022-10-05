@@ -1,11 +1,14 @@
 import { makeAutoObservable } from 'mobx';
-import { IAnalytics, TAnalyticsTypes } from '../models/IAnalytics';
+import { EAnalyticsDropdownName } from '../constants/analyticsDropdown';
+import { EAnalyticsFilterName } from '../constants/analyticsFilter';
+import { IAnalytics, TAnalyticsFilter, TAnalyticsTypes } from '../models/IAnalytics';
 import AnalyticsService from '../services/AnalyticsService';
 
 class Analytics {
   analytics: IAnalytics[] = [];
   analyticsLoading: boolean = false;
-  analyticType: TAnalyticsTypes = 'All Pipelines';
+  analyticType: TAnalyticsTypes = EAnalyticsDropdownName.ALL_PIPELINES;
+  analyticFilter: TAnalyticsFilter = EAnalyticsFilterName.MONTH;
 
   constructor() {
     makeAutoObservable(this);
@@ -13,6 +16,10 @@ class Analytics {
 
   setAnalyticType(type: TAnalyticsTypes) {
     this.analyticType = type;
+  }
+
+  setAnalyticFilter(filter: TAnalyticsFilter) {
+    this.analyticFilter = filter;
   }
 
   setAnalytics(analytics: IAnalytics[]) {
@@ -23,12 +30,10 @@ class Analytics {
     this.analyticsLoading = loading;
   }
 
-  async fetchAnalytics(type: TAnalyticsTypes = 'All Pipelines') {
+  async fetchAnalytics(type: TAnalyticsTypes, filter: TAnalyticsFilter) {
     this.setAnalyticsLoading(true);
     try {
-      const response = await AnalyticsService.fetchAnalytics(type);
-
-      console.log('response', response);
+      const response = await AnalyticsService.fetchAnalytics(type, filter);
 
       this.setAnalytics(response);
     } catch (err) {
@@ -39,4 +44,4 @@ class Analytics {
   }
 }
 
-export default new Analytics();
+export const analyticsStore = new Analytics();

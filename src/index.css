@@ -1,17 +1,20 @@
-@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
 
 :root {
   --color-black: #555555;
   --color-white: #ffffff;
   --color-white-secondary: #f5f5f5;
   --color-blue-light: #d4dbe940;
+  --color-filter-default: #aab7d4;
+  --color-filter-hover: ##7b8aab;
+  --color-filter-active: #3d8fec;
 
   --color-transparent: transparent;
 }
 
 body {
   margin: 0;
-  font-family: "Lato", sans-serif;
+  font-family: 'Lato', sans-serif;
   background-color: var(--color-white-secondary);
 }
 
@@ -26,5 +29,5 @@ li {
 }
 
 button {
-  font-family: "Lato", sans-serif;
+  font-family: 'Lato', sans-serif;
 }

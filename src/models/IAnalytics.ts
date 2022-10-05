@@ -1,4 +1,8 @@
-export type TAnalyticsTypes = 'All Pipelines' | 'Sales' | 'Marketing' | 'Partners';
+import { EAnalyticsDropdownName } from '../constants/analyticsDropdown';
+import { EAnalyticsFilterName } from '../constants/analyticsFilter';
+
+export type TAnalyticsTypes = `${EAnalyticsDropdownName}`;
+export type TAnalyticsFilter = `${EAnalyticsFilterName}`;
 
 export interface IAnalytics {
   id: number;

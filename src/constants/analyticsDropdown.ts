@@ -1,18 +1,28 @@
-export const ANALYTICS_DROPDOWN_LIST = [
+import { TAnalyticsTypes } from '../models/IAnalytics';
+import { IDictionaries } from '../models/IDictionaries';
+
+export enum EAnalyticsDropdownName {
+  ALL_PIPELINES = 'All Pipelines',
+  SALES = 'Sales',
+  MARKETING = 'Marketing',
+  PARTNERS = 'Partners',
+}
+
+export const ANALYTICS_DROPDOWN_LIST: IDictionaries<TAnalyticsTypes>[] = [
   {
     id: 1,
-    name: 'All Pipelines',
+    name: EAnalyticsDropdownName.ALL_PIPELINES,
   },
   {
     id: 2,
-    name: 'Sales',
+    name: EAnalyticsDropdownName.SALES,
   },
   {
     id: 3,
-    name: 'Marketing',
+    name: EAnalyticsDropdownName.MARKETING,
   },
   {
     id: 4,
-    name: 'Partners',
+    name: EAnalyticsDropdownName.PARTNERS,
   },
 ];

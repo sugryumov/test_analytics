@@ -1,0 +1,25 @@
+.list {
+  display: flex;
+  flex-direction: row;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.item {
+  transition: all 0.1s;
+  color: var(--color-filter-default);
+  cursor: pointer;
+}
+
+.item:hover:not(.active) {
+  color: var(--color-filter-hover);
+}
+
+.item:not(:last-child) {
+  margin-right: 40px;
+}
+
+.active {
+  color: var(--color-filter-active);
+  pointer-events: none;
+}

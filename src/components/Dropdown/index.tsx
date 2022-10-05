@@ -1,5 +1,6 @@
 import { FC, useState } from 'react';
-import { Arrow as SVGArrow } from '../SVGIcons';
+import SVGIcon from '../SVGIcon';
+import { otherIcons } from '../../enums/svgIcons';
 import styles from './index.module.css';
 
 interface IDropdownItem {
@@ -37,7 +38,7 @@ export const Dropdown: FC<IDropdownProps> = ({ value, dropdownList, onChangeDrop
       <button type="button" onClick={toggleDropdown} className={styles.button}>
         {selectedItem?.name}
         <div className={isDropdownOpen ? `${styles.arrow} ${styles.expanded}` : styles.arrow}>
-          <SVGArrow />
+          <SVGIcon name={otherIcons.Arrow} />
         </div>
       </button>
 

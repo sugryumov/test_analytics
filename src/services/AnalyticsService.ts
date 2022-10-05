@@ -10,7 +10,7 @@ const data: IAnalytics[] = [
     price: '132000999',
     type: 'Sales',
     createAt: '10.05.2022',
-    icon: 'Won',
+    icon: 'Total',
     color: '#C37ADD',
   },
   {

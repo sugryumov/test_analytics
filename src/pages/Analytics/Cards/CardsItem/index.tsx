@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import SVGIcon from '../../../../components/SVGIcon';
 import { IAnalytics } from '../../../../models/IAnalytics';
 import styles from './index.module.css';
 
@@ -7,7 +8,7 @@ interface ICardsItemProps {
 }
 
 export const CardsItem: FC<ICardsItemProps> = ({ data }) => {
-  const { color, title, count, price } = data;
+  const { color, title, count, price, icon } = data;
 
   const formatPrice = Number(price).toLocaleString('ru', {
     style: 'currency',
@@ -17,7 +18,9 @@ export const CardsItem: FC<ICardsItemProps> = ({ data }) => {
 
   return (
     <div className={styles.card}>
-      <div className={styles.icon} style={{ backgroundColor: color }}></div>
+      <div className={styles.icon} style={{ backgroundColor: color }}>
+        <SVGIcon name={icon} />
+      </div>
 
       <div className={styles.info}>
         <p className={styles.title} style={{ color }}>

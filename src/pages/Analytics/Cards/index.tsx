@@ -18,13 +18,13 @@ export const Cards: FC = observer(() => {
     return <Spinner />;
   }
 
-  if (analyticsStore.analytics.length === 0) {
+  if (analyticsStore.analytics?.length === 0) {
     return <Empty />;
   }
 
   return (
     <div className={styles.cards}>
-      {analyticsStore.analytics.map((card) => (
+      {analyticsStore.analytics?.map((card) => (
         <CardsItem key={card.id} data={card} />
       ))}
     </div>

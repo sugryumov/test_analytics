@@ -5,7 +5,7 @@ import { IAnalytics, TAnalyticsFilter, TAnalyticsTypes } from '../models/IAnalyt
 import AnalyticsService from '../services/AnalyticsService';
 
 class Analytics {
-  analytics: IAnalytics[] = [];
+  analytics: IAnalytics[] | null = null;
   analyticsLoading: boolean = false;
   analyticType: TAnalyticsTypes = EAnalyticsDropdownName.ALL_PIPELINES;
   analyticFilter: TAnalyticsFilter = EAnalyticsFilterName.MONTH;

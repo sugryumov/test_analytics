@@ -2,49 +2,56 @@ import { FC, useState } from "react";
 import { Arrow as SVGArrow } from "../SVGIcons";
 import styles from "./index.module.css";
 
-interface IOptionsList {
+interface IDropdownItem {
   id: number;
   name: string;
 }
 
 interface IDropdownProps {
-  optionsList: IOptionsList[];
+  value: string;
+  dropdownList: IDropdownItem[];
+  onChangeDropdown: (value: string) => void;
 }
 
-export const Dropdown: FC<IDropdownProps> = ({ optionsList }) => {
-  const [isOptionsOpen, setIsOptionsOpen] = useState<boolean>(false);
-  const [selectedOption, setSelectedOption] = useState(optionsList[0]);
+export const Dropdown: FC<IDropdownProps> = ({
+  value,
+  dropdownList,
+  onChangeDropdown,
+}) => {
+  const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
+  const [selectedItem, setSelectedItem] = useState<IDropdownItem>(
+    () => dropdownList.find(({ name }) => name === value)!
+  );
 
-  const toggleOptions = () => {
-    setIsOptionsOpen(!isOptionsOpen);
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
   };
 
   const setSelectedThenCloseDropdown = (id: number) => () => {
-    const findActiveOption = optionsList.find((option) => option.id === id) || {
-      id: 1,
-      name: "",
-    };
+    const findActiveOption = dropdownList.find((item) => item.id === id)!;
 
-    setSelectedOption(findActiveOption);
-    setIsOptionsOpen(false);
+    onChangeDropdown(findActiveOption.name);
+
+    setSelectedItem(findActiveOption);
+    setIsDropdownOpen(false);
   };
 
   return (
     <div className={styles.dropdown}>
-      <button type="button" onClick={toggleOptions} className={styles.button}>
-        {selectedOption.name}
+      <button type="button" onClick={toggleDropdown} className={styles.button}>
+        {selectedItem?.name}
         <div
           className={
-            isOptionsOpen ? `${styles.arrow} ${styles.expanded}` : styles.arrow
+            isDropdownOpen ? `${styles.arrow} ${styles.expanded}` : styles.arrow
           }
         >
           <SVGArrow />
         </div>
       </button>
 
-      <ul className={`${styles.list} ${isOptionsOpen ? styles.show : ""}`}>
-        {optionsList
-          .filter((el) => el.id !== selectedOption.id)
+      <ul className={`${styles.list} ${isDropdownOpen ? styles.show : ""}`}>
+        {dropdownList
+          .filter((item) => item.id !== selectedItem?.id)
           .map(({ name, id }) => (
             <li
               key={id}

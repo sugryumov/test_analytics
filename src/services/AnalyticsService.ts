@@ -1,6 +1,6 @@
-import { ICards, TCardTypes } from "../models/ICards";
+import { IAnalytics, TAnalyticsTypes } from "../models/IAnalytics";
 
-const data: ICards[] = [
+const data: IAnalytics[] = [
   {
     id: 1,
     title: "Total Leads and Deals",
@@ -67,20 +67,18 @@ const data: ICards[] = [
   },
 ];
 
-const flag = Math.random();
-
-export const getCards = ({ type }: { type: TCardTypes }) =>
-  new Promise<any>((resolve, reject) => {
-    const response =
-      type === "All Pipelines" ? data : data.filter((el) => el.type === type);
-
-    setTimeout(
-      () =>
-        flag < 0.9
-          ? resolve({ response })
-          : reject({
-              message: "Произошла ошибка. Перезагрузите страницу.",
-            }),
-      2000
-    );
-  });
+export default class AnalyticsService {
+  static async fetchAnalytics(type: TAnalyticsTypes): Promise<IAnalytics[]> {
+    return new Promise((resolve) => {
+      setTimeout(
+        () =>
+          resolve(
+            type === "All Pipelines"
+              ? data
+              : data.filter((el) => el.type === type)
+          ),
+        2000
+      );
+    });
+  }
+}

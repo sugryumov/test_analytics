@@ -1,7 +1,7 @@
-import { FC, useEffect } from "react";
-import { observer } from "mobx-react-lite";
-import { Spinner } from "../../common/Spinner";
-import analytic from "../../store/analytics";
+import { FC, useEffect } from 'react';
+import { observer } from 'mobx-react-lite';
+import { Spinner } from '../../common/Spinner';
+import analytic from '../../store/analytics';
 
 export const Analytics: FC = observer(() => {
   useEffect(() => {

@@ -1,11 +1,11 @@
-import { makeAutoObservable } from "mobx";
-import { IAnalytics, TAnalyticsTypes } from "../models/IAnalytics";
-import AnalyticsService from "../services/AnalyticsService";
+import { makeAutoObservable } from 'mobx';
+import { IAnalytics, TAnalyticsTypes } from '../models/IAnalytics';
+import AnalyticsService from '../services/AnalyticsService';
 
 class Analytics {
   analytics: IAnalytics[] = [];
   analyticsLoading: boolean = false;
-  analyticType: TAnalyticsTypes = "All Pipelines";
+  analyticType: TAnalyticsTypes = 'All Pipelines';
 
   constructor() {
     makeAutoObservable(this);
@@ -23,12 +23,12 @@ class Analytics {
     this.analyticsLoading = loading;
   }
 
-  async fetchAnalytics(type: TAnalyticsTypes = "All Pipelines") {
+  async fetchAnalytics(type: TAnalyticsTypes = 'All Pipelines') {
     this.setAnalyticsLoading(true);
     try {
       const response = await AnalyticsService.fetchAnalytics(type);
 
-      console.log("response", response);
+      console.log('response', response);
 
       this.setAnalytics(response);
     } catch (err) {

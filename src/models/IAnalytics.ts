@@ -1,8 +1,4 @@
-export type TAnalyticsTypes =
-  | "All Pipelines"
-  | "Sales"
-  | "Marketing"
-  | "Partners";
+export type TAnalyticsTypes = 'All Pipelines' | 'Sales' | 'Marketing' | 'Partners';
 
 export interface IAnalytics {
   id: number;

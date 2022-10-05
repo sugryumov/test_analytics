@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Dropdown } from "../Dropdown";
+import { Dropdown } from "../../common/Dropdown";
 
 const optionsList = [
   {

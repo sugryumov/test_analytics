@@ -6,7 +6,7 @@ import { getCards } from "../../services";
 
 export const Cards: FC = () => {
   const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<boolean>(false);
+  // const [error, setError] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string>("");
 
   const [cards, setCards] = useState<ICards[] | null>(null);
@@ -17,7 +17,7 @@ export const Cards: FC = () => {
         setCards(response);
       })
       .catch((err) => {
-        setError(true);
+        // setError(true);
         setErrorMessage(err.message);
       })
       .finally(() => setLoading(false));
@@ -27,7 +27,7 @@ export const Cards: FC = () => {
     return <Spinner />;
   }
 
-  if (error) {
+  if (errorMessage) {
     return <Error message={errorMessage} />;
   }
 

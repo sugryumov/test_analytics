@@ -1,5 +1,5 @@
 import { FC, useState } from "react";
-import { Arrow as SVGArrow } from "../../common/SVGIcons";
+import { Arrow as SVGArrow } from "../SVGIcons";
 import styles from "./index.module.css";
 
 interface IOptionsList {

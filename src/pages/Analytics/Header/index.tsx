@@ -1,10 +1,10 @@
 import { FC } from 'react';
 import { observer } from 'mobx-react-lite';
-import { ANALYTICS_DROPDOWN_LIST } from '../../constants/analyticsDropdown';
-import { TAnalyticsTypes } from '../../models/IAnalytics';
-import { Dropdown } from '../../common/Dropdown';
-import { Filter } from '../Filter';
-import { analyticsStore } from '../../store/analytics';
+import { analyticsStore } from '../../../store/Analytics';
+import { TAnalyticsTypes } from '../../../models/IAnalytics';
+import { Dropdown } from '../../../components/Dropdown';
+import { DROPDOWN_LIST } from './dropdownList';
+import { Filter } from './Filter';
 import styles from './index.module.css';
 
 export const Header: FC = observer(() => {
@@ -19,7 +19,7 @@ export const Header: FC = observer(() => {
     <header className={styles.header}>
       <Dropdown
         value={analyticsStore.analyticType}
-        dropdownList={ANALYTICS_DROPDOWN_LIST}
+        dropdownList={DROPDOWN_LIST}
         onChangeDropdown={onChangeDropdown}
       />
 

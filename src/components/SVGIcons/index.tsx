@@ -20,7 +20,7 @@ export const Spinner = (props: React.SVGProps<SVGSVGElement>) => {
       display="block"
       {...props}
     >
-      <path d="M10 50a40 40 0 0080 0 40 42 0 01-80 0" fill="crimson">
+      <path d="M10 50a40 40 0 0080 0 40 42 0 01-80 0" fill="#3d8fec">
         <animateTransform
           attributeName="transform"
           type="rotate"

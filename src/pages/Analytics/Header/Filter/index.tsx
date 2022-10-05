@@ -1,11 +1,11 @@
 import { FC } from 'react';
-import { ANALYTICS_FILTER_LIST } from '../../constants/analyticsFilter';
+import { FILTER_LIST } from './filterList';
 import { FilterItem } from './FilterItem';
 import styles from './index.module.css';
 
 export const Filter: FC = () => (
   <ul className={styles.list}>
-    {ANALYTICS_FILTER_LIST.map((item) => {
+    {FILTER_LIST.map((item) => {
       return <FilterItem key={item.id} data={item} />;
     })}
   </ul>

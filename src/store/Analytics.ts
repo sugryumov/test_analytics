@@ -1,6 +1,6 @@
 import { makeAutoObservable } from 'mobx';
-import { EAnalyticsDropdownName } from '../constants/analyticsDropdown';
-import { EAnalyticsFilterName } from '../constants/analyticsFilter';
+import { EAnalyticsDropdownName } from '../enums/analyticsDropdown';
+import { EAnalyticsFilterName } from '../enums/analyticsFilter';
 import { IAnalytics, TAnalyticsFilter, TAnalyticsTypes } from '../models/IAnalytics';
 import AnalyticsService from '../services/AnalyticsService';
 

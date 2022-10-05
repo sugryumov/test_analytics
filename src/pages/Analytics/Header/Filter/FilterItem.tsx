@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import { observer } from 'mobx-react-lite';
-import { TAnalyticsFilter } from '../../models/IAnalytics';
-import { IDictionaries } from '../../models/IDictionaries';
-import { analyticsStore } from '../../store/analytics';
+import { TAnalyticsFilter } from '../../../../models/IAnalytics';
+import { IDictionaries } from '../../../../models/IDictionaries';
+import { analyticsStore } from '../../../../store/Analytics';
 import styles from './index.module.css';
 
 interface IFilterProps {

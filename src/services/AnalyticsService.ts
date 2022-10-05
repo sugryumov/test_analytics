@@ -1,4 +1,4 @@
-import { EAnalyticsDropdownName } from '../constants/analyticsDropdown';
+import { EAnalyticsDropdownName } from '../enums/analyticsDropdown';
 import { IAnalytics, TAnalyticsFilter, TAnalyticsTypes } from '../models/IAnalytics';
 import { convertNameToDate } from '../utils/prepareDate';
 
@@ -93,7 +93,7 @@ export default class AnalyticsService {
               ? filteredByDate
               : filteredByDate.filter((el) => el.type === type)
           ),
-        2000
+        1000
       );
     });
   }

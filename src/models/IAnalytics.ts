@@ -1,5 +1,5 @@
-import { EAnalyticsDropdownName } from '../constants/analyticsDropdown';
-import { EAnalyticsFilterName } from '../constants/analyticsFilter';
+import { EAnalyticsDropdownName } from '../enums/analyticsDropdown';
+import { EAnalyticsFilterName } from '../enums/analyticsFilter';
 
 export type TAnalyticsTypes = `${EAnalyticsDropdownName}`;
 export type TAnalyticsFilter = `${EAnalyticsFilterName}`;

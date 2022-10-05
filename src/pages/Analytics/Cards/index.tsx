@@ -1,10 +1,10 @@
 import { FC, useEffect } from 'react';
 import { observer } from 'mobx-react-lite';
-import { Spinner } from '../../common/Spinner';
-import { analyticsStore } from '../../store/analytics';
-import { Empty } from '../../common/Empty';
+import { Empty } from '../../../components/Empty';
+import { Spinner } from '../../../components/Spinner';
+import { analyticsStore } from '../../../store/Analytics';
 
-export const Analytics: FC = observer(() => {
+export const Cards: FC = observer(() => {
   useEffect(() => {
     const type = analyticsStore.analyticType;
     const dateFilter = analyticsStore.analyticFilter;

@@ -1,4 +1,4 @@
-import { EAnalyticsFilterName } from '../constants/analyticsFilter';
+import { EAnalyticsFilterName } from '../enums/analyticsFilter';
 
 const dateToString = (day: number) => {
   const today = new Date();

@@ -1,6 +1,5 @@
 import { FC, useState } from "react";
-import { SVG_ICONS } from "../../constants/SVGIcons";
-import SVGIcon from "../SVGIcon";
+import { Arrow as SVGArrow } from "../../common/SVGIcons";
 import styles from "./index.module.css";
 
 interface IOptionsList {
@@ -39,7 +38,7 @@ export const Dropdown: FC<IDropdownProps> = ({ optionsList }) => {
             isOptionsOpen ? `${styles.arrow} ${styles.expanded}` : styles.arrow
           }
         >
-          <SVGIcon name={SVG_ICONS.ARROW} />
+          <SVGArrow />
         </div>
       </button>
 

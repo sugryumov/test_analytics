@@ -1,4 +1,5 @@
 .dropdown {
+  position: relative;
   width: 167px;
 }
 
@@ -15,17 +16,16 @@
 }
 
 .arrow {
-  width: 8px;
-  height: 11px;
-  margin: 1px 0 0 8px;
+  margin: 0 0 0 8px;
   transition: all 0.3s;
 }
 
 .expanded {
-  transform: rotate(180deg);
+  transform: rotate(180deg) translateY(-2px) translateX(2px);
 }
 
 .list {
+  position: absolute;
   display: none;
   width: 167px;
   margin-top: 5px;

@@ -1,0 +1,36 @@
+.card {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  margin: 0;
+  background: var(--color-white);
+  box-shadow: 0px 0px 2px #eef4fe, 0px 1px 2px #d0daeb;
+  border-radius: 7px;
+}
+
+.icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 11px;
+}
+
+.info {
+  margin-left: 16px;
+}
+
+.title {
+  margin-bottom: 5px;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 23px;
+}
+
+.count {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 27px;
+}
+
+.price {
+  font-weight: 400;
+}

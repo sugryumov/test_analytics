@@ -3,6 +3,8 @@ import { observer } from 'mobx-react-lite';
 import { Empty } from '../../../components/Empty';
 import { Spinner } from '../../../components/Spinner';
 import { analyticsStore } from '../../../store/Analytics';
+import { CardsItem } from './CardsItem';
+import styles from './index.module.css';
 
 export const Cards: FC = observer(() => {
   useEffect(() => {
@@ -21,11 +23,9 @@ export const Cards: FC = observer(() => {
   }
 
   return (
-    <div>
-      {analyticsStore.analytics.map((el) => (
-        <p key={el.id}>
-          {el.title} {el.createAt}
-        </p>
+    <div className={styles.cards}>
+      {analyticsStore.analytics.map((card) => (
+        <CardsItem key={card.id} data={card} />
       ))}
     </div>
   );

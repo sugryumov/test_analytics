@@ -11,4 +11,6 @@ export interface IAnalytics {
   price: string | null;
   type: TAnalyticsTypes;
   createAt: string;
+  icon: string;
+  color: string;
 }
